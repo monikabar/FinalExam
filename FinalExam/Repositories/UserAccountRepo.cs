@@ -55,10 +55,10 @@ namespace FinalExam.Repositories
             return userAccountImageToUpdate;
         }
 
-        public UserAccount UpdateUserAccountFirstName(int id, string name)
+        public UserAccount UpdateUserAccountFirstName(int id, string firstName)
         {
             var userAccountFirstNameToUpdate = _context.UsersAccounts.Single(x => x.Id == id);
-            userAccountFirstNameToUpdate.FirstName = name;
+            userAccountFirstNameToUpdate.FirstName = firstName;
             _context.SaveChanges();
 
             return userAccountFirstNameToUpdate;
@@ -100,7 +100,7 @@ namespace FinalExam.Repositories
             return userAccountEmailToUpdate;
         }
 
-        public UserAccount DeleteUserAccount(int id)
+        public UserAccount DeleteUserAccountById(int id)
         {
             var userAccountToDelete = _context.UsersAccounts.Single(x => x.Id == id);
             _context.UsersAccounts.Remove(userAccountToDelete);

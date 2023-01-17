@@ -31,10 +31,10 @@ namespace FinalExam.Repositories
             return newUserLogin;
         }
 
-        public UserLogin UpdateUserLogin(int id, UserLoginDTO userLogin)
+        public UserLogin UpdateUserLoginById(int id, UserLoginDTO userLogin)
         {
             var userLoginToUpdate = _context.UsersLogins.Single(x => x.Id == id);
-            userLoginToUpdate.Username = userLogin.Username;
+            //userLoginToUpdate.Username = userLogin.Username;
             userLoginToUpdate.Password = userLogin.Password;
             //userLoginToUpdate.Role = userLogin.Role;
             _context.SaveChanges();
@@ -42,7 +42,7 @@ namespace FinalExam.Repositories
             return userLoginToUpdate;
         }
 
-        public UserLogin DeleteUserLogin(int id)
+        public UserLogin DeleteUserLoginById(int id)
         {
             var userLoginToDelete = _context.UsersLogins.Single(x => x.Id == id);
             _context.UsersLogins.Remove(userLoginToDelete);
@@ -61,10 +61,16 @@ namespace FinalExam.Repositories
             return _context.UsersLogins.Where(x => x.Id == id).ToList();
         }
 
-        public UserLogin GetUserLogin(UserLoginDTO userLogin)
+        public List<UserLogin> GetUserLoginByUsernameAndPassword(string username, string password)
         {
-            var userLoginToGet = _context.UsersLogins.Single(x => (x.Username == userLogin.Username && x.Password == userLogin.Password));
+            return _context.UsersLogins.Where(x => x.Username == username && x.Password == password).ToList();
+        }
+
+        public UserLogin GetUserLogin(UserLoginDTO userLoginDTO)
+        {
+            var userLoginToGet = _context.UsersLogins.Single(x => (x.Username == userLoginDTO.Username && x.Password == userLoginDTO.Password));
             return userLoginToGet;
         }
+
     }
 }

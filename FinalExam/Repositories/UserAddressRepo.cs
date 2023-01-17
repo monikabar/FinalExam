@@ -77,7 +77,7 @@ namespace FinalExam.Repositories
             return userAddressApartmentNumberToUpdate;
         }
 
-        public UserAddress DeleteUserAddress(int id)
+        public UserAddress DeleteUserAddressById(int id)
         {
             var userAddressToDelete = _context.UsersAddresses.Single(x => x.Id == id);
             _context.UsersAddresses.Remove(userAddressToDelete);
