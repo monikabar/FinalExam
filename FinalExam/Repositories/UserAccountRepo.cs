@@ -19,6 +19,7 @@ namespace FinalExam.Repositories
         {
             var newUserAccount = new UserAccount
             {
+                UserLoginId = userAccount.UserLoginId,
                 Image = userAccount.Image,
                 FirstName = userAccount.FirstName,
                 LastName = userAccount.LastName,
@@ -35,6 +36,7 @@ namespace FinalExam.Repositories
         public UserAccount UpdateAllUserAccount(int id, UserAccountDTO userAccount)
         {
             var userAccountToUpdate = _context.UsersAccounts.Single(x => x.Id == id);
+            //userAccountToUpdate.UserLoginId = userAccount.UserLoginId;
             userAccountToUpdate.Image = userAccount.Image;
             userAccountToUpdate.FirstName = userAccount.FirstName;  
             userAccountToUpdate.LastName = userAccount.LastName;

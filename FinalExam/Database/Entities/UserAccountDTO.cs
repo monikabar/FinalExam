@@ -2,6 +2,7 @@
 {
     public class UserAccountDTO
     {
+        public int UserLoginId { get; set; }
         public byte[] Image { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

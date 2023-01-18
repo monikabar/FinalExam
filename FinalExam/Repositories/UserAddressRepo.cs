@@ -19,6 +19,7 @@ namespace FinalExam.Repositories
         {
             var newUserAddress = new UserAddress
             {
+                UserLoginId = userAddress.UserLoginId,
                 City = userAddress.City,
                 Street = userAddress.Street,
                 HouseNumber = userAddress.HouseNumber,
@@ -33,6 +34,7 @@ namespace FinalExam.Repositories
         public UserAddress UpdateAllUserAddress(int id, UserAddressDTO userAddress)
         {
             var userAddressToUpdate = _context.UsersAddresses.Single(x => x.Id == id);
+            //userAddressToUpdate.UserLoginId = userAddress.UserLoginId;
             userAddressToUpdate.City = userAddress.City;
             userAddressToUpdate.Street = userAddress.Street;
             userAddressToUpdate.HouseNumber = userAddress.HouseNumber;
