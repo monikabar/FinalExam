@@ -25,13 +25,15 @@ namespace FinalExam.Controllers
             return _userLoginRepo.AddNewUserLogin(userLogin);
         }
 
-        [HttpGet("Login")] //NEVEIKIA
+        /*
+        [HttpGet("Login")]
         public UserLogin Login([FromQuery] UserLoginDTO userLoginDTO)
         {
             return _userLoginRepo.GetUserLogin(userLoginDTO);
         }
+        */
 
-        [HttpGet("Login with username/password")]
+        [HttpGet("LoginWithUsernamePassword")]
         public List<UserLogin> GetUserLoginByUsernameAndPassword([FromQuery] string username, string password)
         {
             return _userLoginRepo.GetUserLoginByUsernameAndPassword(username, password);
